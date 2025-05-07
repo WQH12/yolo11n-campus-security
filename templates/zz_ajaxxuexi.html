@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮询</title>
+</head>
+<body>
+<h3 align="center">轮询页面</h3>
+<h4 id="timenow">当前时间?</h4>
+<ul id="tables">
+
+</ul>
+<button id="load">获取课表</button>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    /*function gettable()
+        $.ajax({
+            url:'/gettable',                    //从gettable这个视图函数获取数据，一会编写
+            type:'GET',
+            dataType:'JSON',
+            timeout:10000,                      //超时时间设置为10秒
+            success:function (table){           //成功之后的结果，这里的table是从'/gettable'视图函数获得的返回值，是一个字典，它的键是从0开始，它的值是一个list
+                $('#tables').empty();           //先清空，否则会重复
+                //for (var i=0;i<table.length;i++){//对于每一个
+                //    //var li=document.createElement('li');
+                //$('#tables').html(table['0'].class_);
+                //}
+                /*
+                $.each(table,function (k,v){
+                    var li=document.createElement('li');
+                    li.setAttribute('uid',k);
+                    li.innerText=v.class_id+","+v.class_name+","+v.class_room+","+v.teacher;
+                    $('#tables').append(li);
+                })
+                */
+            //}
+        //})//;
+   // }
+    //setInterval(gettable,100000)                   //每秒刷新一次
+
+    $(function (){
+        $('#load1').click(function (){               //load是上面的button的id，这里代表点一下的操作
+            $.ajax({
+                url:'/gettime',                     //从gettime这个视图函数获取数据，一会编写
+                type:'get',                         //采用get方法
+                dataType:'JSON',
+                success:function(a){            //成功之后的结果，这里的t是从'/gettime'视图函数获得的返回值，如果返回值有多个，可以用json
+                    //$('#timenow').load('当前时间为')//用“当前时间为：t”代替timenow也就是上面的“当前时间?"
+                    if(!a['is_null'])
+                         $('#tables').empty();
+                        var i=a[0];
+                        for(let g=0 ;g < i; g++) {
+
+                            $('#tables').append(a[1][g]['id'] + "," + a[1][g]['time'] + "," + a[1][g]['chuli'] + "," + a[1][g]['location'] + a[1][g]['content']);
+                        }
+                    //table.clear();
+                    //alert(table.teacher);
+
+                    //$('#tables').('hello');
+
+                }
+            })
+        })
+    })
+
+    /*
+   function gettable(){
+        $.ajax({
+            url:'/gettable',                    //从gettable这个视图函数获取数据，一会编写
+            type:'GET',
+            dataType:'JSON',
+            //timeout:10000,                      //超时时间设置为10秒
+            success:function (table){           //成功之后的结果，这里的table是从'/gettable'视图函数获得的返回值，是一个字典，它的键是从0开始，它的值是一个list
+                //$('#tables').empty();           //先清空，否则会重复
+                //for (var i=0;i<table.length;i++){//对于每一个
+                //    //var li=document.createElement('li');
+                //$('#tables').html(table['0'].class_);
+                //}
+                if(!table['is_null'])
+                        $('#tables').append(table['class_id']+","+table['class_name']+","+table['class_room']+","+table['teacher']+"     ");
+                }
+        });
+    }
+    setInterval(gettable,1000)                   //每秒刷
+*/
+</script>
+</body>
+</html>

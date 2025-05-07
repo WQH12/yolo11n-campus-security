@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户注册页面</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <link href="static/css/style-v2.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+</head>
+<body id="managebg">
+     <form method="post" action="{{ url_for('dengru') }}" style="width: 400px; margin: 100px auto">
+        {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">账号</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" value="" name="accountname">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">密码</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" value="" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+</body>
+</html>

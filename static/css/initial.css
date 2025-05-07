@@ -1,0 +1,168 @@
+
+ .frame_1 {
+    width: 90%;
+    position: absolute;
+    left: 10px;
+    top: 40px
+  }
+  .frame_2 {
+    width: 90%;
+    position: absolute;
+    left: 10px;
+    top:  95px;
+  }
+  .frame_3 {
+    width: 90%;
+    position: absolute;
+    left: 10px;
+    top:  150px;
+  }
+  .frame_4 {
+    width: 90%;
+    position: absolute;
+    left: 10px;
+    top: 205px
+  }
+  .frame_5 {
+    width: 90%;
+    position: absolute;
+    left: 180px;
+    top: 40px
+  }
+  .frame_6 {
+    width: 90%;
+    position: absolute;
+    left: 180px;
+    top:  95px;
+  }
+
+  .frame_7{
+    width: 90%;
+    position: absolute;
+    left: 180px;
+    top:  150px;
+
+  }
+  .frame_8{
+    width: 90%;
+    position: absolute;
+    left: 180px;
+    top: 205px
+
+  }
+  .frame_9{
+    width: 90%;
+    position: absolute;
+    left: 350px;
+    top:40px;
+
+  }
+  .frame_10{
+    width: 90%;
+    position: absolute;
+    left: 350px;
+    top:95px;
+    
+  }
+  .frame_11{
+    width: 90%;
+    position: absolute;
+    left: 350px;
+    top:150px;
+}
+ .frame_12{
+    width: 90%;
+    position: absolute;
+    left: 350px;
+    top:205px;
+}
+.frame_13{
+    width: 90%;
+  position: absolute;
+  left: 530px;
+  top:40px;
+}
+.frame_14{
+    width: 90%;
+  position: absolute;
+  left: 530px;
+  top:95px;
+}
+.frame_15{
+    width: 90%;
+  position: absolute;
+  left: 530px;
+  top:150px;
+}
+.frame_16{
+    width: 90%;
+  position: absolute;
+  left: 530px;
+  top:205px;
+}
+.frame_17{
+    width: 90%;
+  position: absolute;
+  left: 700px;
+  top:40px;
+}
+.frame_18{
+    width: 90%;
+  position: absolute;
+  left: 700px;
+  top:95px;
+}
+.frame_19{
+    width: 90%;
+  position: absolute;
+  left: 700px;
+  top:150px;
+}
+.frame_20{
+    width: 90%;
+  position: absolute;
+  left: 700px;
+  top:205px;
+}
+
+
+
+
+
+
+
+  button {
+    margin: 20px;
+  }
+
+  .custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+  }
+  
+  /* 1 */
+  .btn-1 {
+    background: rgb(6, 135, 145);
+    background: linear-gradient(0deg, rgb(21, 46, 45) 0%, rgb(1, 34, 44) 100%);
+    border: none;
+  }
+  .btn-1:hover {
+     background: rgb(0,3,255);
+  background: linear-gradient(0deg, rgba(0,3,255,1) 0%, rgba(2,126,251,1) 100%);
+  }
+
+

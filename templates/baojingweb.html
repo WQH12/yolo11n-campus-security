@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9"><![endif]--><head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="format-detection" content="telephone=no">
+        <meta charset="UTF-8">
+        <meta name="description" content="Violate Responsive Admin Template">
+        <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
+        <title>慧眼</title>
+        <meta name="description" content="" />
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="static/js/bootstrap-3.3.4.css">
+        <link rel="stylesheet" type="text/css" href="static/js/font-awesome.4.6.0.css">
+        <link href="static/css/animate.min.css" rel="stylesheet">
+        <link href="static/css/form.css" rel="stylesheet">
+        <link href="static/css/calendar.css" rel="stylesheet">
+        <link href="static/css/media-player.css" rel="stylesheet">
+        <link href="static/css/style.css" rel="stylesheet">
+        <link href="static/css/initial.css" rel="stylesheet">
+        <link href="static/css/icons.css" rel="stylesheet">
+        <link href="static/css/generics.css" rel="stylesheet">
+        <link href="static/css/zhuangshi.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="css/reset.css">-->
+        <link rel="stylesheet" href="static/css/jquery.hotspot.css">
+    </head>
+
+    <body class="beijing">
+
+
+        <header id="header" class="media toptu" style="height:40px"> <!-- 这一块来实现对标题部分的一个具体设置   由toptu来实现上方的标签的设置-->
+             <!-- 就是说这边就是设置那个标题框的一个位置-->
+
+            <div class="media-body">
+                <div class="media" id="top-menu"> <!--在这个框架内部来实现标题栏东西的一个具体设置-->
+                    <div class="pull-right tm-icon">
+                        <a data-drawer="messages" class="drawer-toggle" href="">
+                            <i class="sa-top-message"></i>
+                            <!-- 就是通过sa-top-message来实现那个提示图表的设置 -->
+                            <i class="n-count animated">{{ sum1 }}</i>
+                            <span style="color: black;">实时消息</span>
+                        </a>
+                    </div>
+                    <div class="pull-right tm-icon">
+                        <a href="{{ url_for('jiankongdinwei') }}">
+                            <i class="sa-top-message1"></i>
+                            <!-- 就是通过sa-top-message来实现那个提示图表的设置 -->
+                            <span style="color: white;">后台管理</span>
+                        </a>
+                    </div>
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </header>
+
+        <div class="clearfix"></div>
+
+        <section id="main" class="p-relative" role="main">  <!--这块大概就是网页的一个主体部分的设计了-->
+
+
+            <!-- Content -->
+            <section id="content" class="container" style="margin-left: 0px">
+
+                <!-- Messages Drawer -->
+                <div id="messages" class="tile drawer animated">    <!-- 这一块就是实时信息图标点开之后的一个效果-->
+                    <div class="listview narrow">
+                        <div class="media">
+                            <a href="">新消息</a>
+                            <span class="drawer-close">&times;</span>
+
+                        </div>
+                        <div class="overflow" style="height: 254px">
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/1.png" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">调度班长 - 2分钟前</small><br>
+                                    <a class="t-overflow" href="">空调系统数据采集异常，请工作人员检查。</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/2.png" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">值班专员 - 15分钟前</small><br>
+                                    <a class="t-overflow" href="">办公室供暖系统出现异常，无法提供正常供暖，请排除故障!</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/3.png" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">自动化班长 - 3小时前</small><br>
+                                    <a class="t-overflow" href="">能源费用分布图以及报表数据有误差，请核对</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/4.png" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">值班人员 - 3小时前</small><br>
+                                    <a class="t-overflow" href="">锅炉房水温过高，告警系统启动，请及时查看.</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/1.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">办公室 - 4小时前</small><br>
+                                    <a class="t-overflow" href="">请各部门提供上周能耗统计数据，本周将针对关键能耗点进行技术优化</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/2.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">值班专员 - 5小时前</small><br>
+                                    <a class="t-overflow" href="">自动化班提供1#机房总耗电量远远超过预测值，请再次核对数据并及时告知！</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/3.png" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">办公室 - 6小时前</small><br>
+                                    <a class="t-overflow" href="">请提供“人均空调系统能耗”和“制冷系统能效比”两组数据</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/4.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">办公室专责 - 6小时前</small><br>
+                                    <a class="t-overflow" href="">请调度班提供2#机房和3#基站的能耗统计数据.</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/5.png" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">网管中心 - 7小时前</small><br>
+                                    <a class="t-overflow" href="">今天凌晨将进行断网检修，请各部门及时下载相关材料</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media text-center whiter l-100">
+                            <a href=""><small>查看所有</small></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notification Drawer -->  <!-- 这一块就是报警信息图标点开之后的一个效果-->
+                <div id="notifications" class="tile drawer animated">
+                    <div class="listview narrow">
+                        <div class="media">
+                            <a href="">实时告警</a>
+                            <span class="drawer-close">&times;</span>
+                        </div>
+                        <div class="overflow" style="height: 254px">
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/1.png" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">值班人员 - 35秒前</small><br>
+                                    <a class="t-overflow" href="">供暖系统能耗数据采集异常</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/3.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">调度值班室 - 1分钟前</small><br>
+                                    <a class="t-overflow" href="">办公照明系统出现故障，请立即检修！</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/3.png" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">办公室 - 2分钟前</small><br>
+                                    <a class="t-overflow" href="">办公区空调1#机组无法正常工作，异响</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/4.png" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">值班专责 - 3分钟前</small><br>
+                                    <a class="t-overflow" href="">1#制冷站中级故障告警，请立即前往查看</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/4.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">值班人员 - 4分钟前</small><br>
+                                    <a class="t-overflow" href="">冷机用电量突变，请查看是否故障</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img width="40" src="img/profile-pics/2.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">办公室专责 - 5分钟前</small><br>
+                                    <a class="t-overflow" href="">新风系统告警，无法正常工作</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media text-center whiter l-100">
+                            <a href=""><small>查看所有</small></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Breadcrumb -->
+                <ol class="breadcrumb hidden-xs">
+                    <li style="color: black"><a href="{{ url_for('i1') }}" style="color: black">返回</a></li>
+                </ol>
+
+
+
+                <!-- Shortcuts -->
+                <!--<div class="robin_circle" style="margin: 6px 0px 18px 20px;">-->
+                    <!--<div class="r_out">-->
+                        <!--<div class="r_in">-->
+                            <!--<div class="r_c c1"></div>-->
+                            <!--<div class="r_num">45,685</div>-->
+                        <!--</div>-->
+                        <!--<p>总能耗(kW·h)</p>-->
+                    <!--</div>-->
+                    <!--<div class="r_out">-->
+                        <!--<div class="r_in">-->
+                            <!--<div class="r_c c2"></div>-->
+                            <!--<div class="r_num">20843.67</div>-->
+                        <!--</div>-->
+                        <!--<p>办公楼(kW·h)</p>-->
+                    <!--</div>-->
+                    <!--<div class="r_out">-->
+                        <!--<div class="r_in">-->
+                            <!--<div class="r_c c3"></div>-->
+                            <!--<div class="r_num">10208.5</div>-->
+                        <!--</div>-->
+                        <!--<p>营业厅(kW·h)</p>-->
+                    <!--</div>-->
+                    <!--<div class="r_out">-->
+                        <!--<div class="r_in">-->
+                            <!--<div class="r_c c4"></div>-->
+                            <!--<div class="r_num">8608.35</div>-->
+                        <!--</div>-->
+                        <!--<p>机房(kW·h)</p>-->
+                    <!--</div>-->
+                    <!--<div class="r_out">-->
+                        <!--<div class="r_in">-->
+                            <!--<div class="r_c c5"></div>-->
+                            <!--<div class="r_num">6024.48</div>-->
+                        <!--</div>-->
+                        <!--<p>基站(kW·h)</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+
+
+
+                <!-- Main Widgets -->
+
+                <div class="block-area">
+                    <div class="row">
+
+
+                        <div class="col-md-5">  <!-- 这一块决定了右边部分的大小-->
+                            <div class="tile horn1" style="height: 508px" >
+                                <h3 class=" shangbian" style="padding-top: 7px">时间</h3>
+
+                                <div class="p-10 zuobian" >
+                                    <div class="listview todo-list sortable gundong" style="height: 200px;overflow :auto" id="wcl">
+                                        <!-- 这一块就放时间就可以了-->
+                                         <h5>{{ bj.time }}</h5>
+
+                                    </div>
+
+                                </div>
+                                <h3 class="tile-title" style="padding-top: 7px">地点</h3>
+                                        <div class="p-10 zuobian">
+                                         <div class="listview todo-list sortable gundong" style="height: 180px;overflow :auto" id="ycl" >
+                                         <!-- 这一块就放报警地点就可以了-->
+                                             <h5>{{ bj.location }}</h5>
+
+                                         </div>
+
+                                        </div>
+                            </div>
+
+                            <!-- Dynamic Chart -->
+                            <div class="tile">
+                                <h3 class="shangbian" style="padding-top: 7px"></h3>
+
+
+                                <div  style="height: 250px" class=" horn2">
+                                    <h3 class="tile-title " style="padding-top: 7px">报警内容</h3>
+                                    <!-- 这一块就直接放到时候的报警事件-->
+                                    <h5>{{ bj.content }}</h5>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-md-7">
+                            <!-- Main Chart -->   <!-- 这一块是中间部分之后就用来放视频-->
+                            <div class="tile">
+                                <h3 class="tile-title" style="padding-top: 7px">报警截图</h3>
+
+                                <div class="p-10 xiabian" style="height: 760px">
+                                        <!-- 这一块就直接放入报警的地图即可就可以了-->
+                                        <img src="static/img/{{ bj.id }}.jpg" style="width: 90%; height: 90%">
+
+
+                                   </div>
+                                </div>
+                            </div>
+
+                            <!--  Recent Postings -->
+
+
+                        </div>  <!-- 这一块决定了左边部分的大小-->
+                                <!-- 此时上下两个是同级的-->
+
+
+
+
+
+
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+            </section>
+
+
+        </section>
+
+        <!-- Javascript Libraries -->
+        <!-- jQuery -->
+        <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script> <!-- jQuery Library -->
+        <script src="http://www.jq22.com/jquery/jquery-ui-1.11.0.js"></script> <!-- jQuery UI -->
+        <script src="static/js/jquery.easing.1.3.js"></script> <!-- jQuery Easing - Requirred for Lightbox + Pie Charts-->
+        <script src="static/js/ii.js"></script>
+        <script src="static/js/anniu.js"></script>
+        <!-- Bootstrap -->
+        <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+        <script src="static/js/echarts/echarts.min.js"></script>
+        <!-- Charts -->
+        <script src="static/js/charts/jquery.flot.js"></script> <!-- Flot Main -->
+        <script src="static/js/charts/jquery.flot.time.js"></script> <!-- Flot sub -->
+        <script src="static/js/charts/jquery.flot.animator.min.js"></script> <!-- Flot sub -->
+        <script src="static/js/charts/jquery.flot.resize.min.js"></script> <!-- Flot sub - for repaint when resizing the screen -->
+
+        <script src="static/js/sparkline.min.js"></script> <!-- Sparkline - Tiny charts -->
+        <script src="static/js/easypiechart.js"></script> <!-- EasyPieChart - Animated Pie Charts -->
+        <script src="static/js/charts.js"></script> <!-- All the above chart related functions -->
+
+        <!-- Map -->
+        <script src="static/js/maps/jvectormap.min.js"></script> <!-- jVectorMap main library -->
+        <script src="static/js/maps/usa.js"></script> <!-- USA Map for jVectorMap -->
+
+        <!--Media Player-->
+        <script src="static/js/media-player.min.js"></script> <!-- USA Map for jVectorMap -->
+
+        <!--  Form Related -->
+        <script src="static/js/icheck.js"></script> <!-- Custom Checkbox + Radio -->
+
+        <!-- UX -->
+        <script src="static/js/scroll.min.js"></script> <!-- Custom Scrollbar -->
+
+        <!-- Other -->
+        <script src="static/js/calendar.min.js"></script> <!-- Calendar -->
+        <!--<script src="js/feeds.min.js"></script> &lt;!&ndash; News Feeds &ndash;&gt;-->
+        <!--HotSpot of pic-->
+        <script src="static/js/modernizr.custom.49511.js"></script>
+        <script src="static/js/jquery.hotspot.min.js"></script>
+
+        <!-- All JS functions -->
+        <script src="static/js/functions.js"></script>
+        <script src="static/js/button.js"></script>  <!-- 按钮函数 -->
+        <script src="static/js/shipingqiehuan.js"></script>  <!-- 监控视频的切换 -->
+
+
+    </body>
+
+
+
+
+
+
+</script>
+
+
+
+
+</html>
+

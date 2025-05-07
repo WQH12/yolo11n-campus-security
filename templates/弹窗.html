@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+  #div1{ width:150px; height:200px; position:absolute; top:50px; left:-150px; background:#F00;}
+  #div1 span{ width:20px; height:70px; position:absolute; left:150px; top:80px; line-height:20px; right:-20px; background:#ccc;}
+</style>
+<script>
+  window.onload=function(){
+      var oDiv=document.getElementById('div1');
+        oDiv.onmouseover=function(){
+          startMove(0); //移入处于显示状态，默认为隐藏状态，根据红色字处进行操作
+       };
+       oDiv.onmouseout=function(){
+          startMove(-150); //div1距离页面左边界线的距离，移出处于隐藏状态
+       };
+     };
+     var timer=null;
+function startMove(Taget)
+{ 
+         var oDiv=document.getElementById('div1');
+        clearInterval(timer);
+        timer=setInterval(function(){
+            var speed=0;  //弹框的移动速度
+            if(oDiv.offsetLeft<Taget)
+            {
+               speed=10;
+            }
+            else
+            {
+               speed=-10;
+            }
+              if(oDiv.offsetLeft==Taget)
+             {
+                 clearInterval(timer);
+             }
+             else
+             {
+                oDiv.style.left=oDiv.offsetLeft+speed+'px';
+             }
+          },30);
+}
+</script>
+</head>
+ 
+<body>
+<div id='div1'>
+   <span>快速切换</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,485 @@
+.horn{
+  
+    background: linear-gradient(hwb(93 8% 8%), #4a6e09) left top,
+		linear-gradient(hwb(93 8% 8%), #4a6e09)  left top,
+		linear-gradient(hwb(93 8% 8%), #4a6e09)  right top,
+		linear-gradient(hwb(93 8% 8%), #4a6e09)  right top,
+		linear-gradient(hwb(93 8% 8%), #4a6e09)  left bottom,
+		linear-gradient(hwb(93 8% 8%), #4a6e09)  left bottom,
+		linear-gradient(hwb(93 8% 8%), #4a6e09)  right bottom,
+		linear-gradient(hwb(93 8% 8%), #4a6e09)  right bottom;
+	
+    background-color: rgba(0,0,0,0.3);
+	background-repeat: no-repeat;
+  background-size: 5px 35px, 35px 5px;
+}
+
+
+.cebian{
+	border-left-style: solid;
+	border-right-style: solid;
+	border-width:0px 6px;
+	border-color:gray;
+
+
+}
+
+.zuobian{
+	border-left-style: solid;
+
+	border-left-width:4px;
+	border-left-color:gray;
+
+
+}
+
+
+.youbian{
+	
+	border-right-style: solid;
+	border-right-width: 4px;
+	border-right-color:gray;
+
+
+}
+
+
+
+
+.shangbian{
+	border-top-style: solid;
+	border-top-width:10px ;
+	border-top-color: #9a9595;
+}
+
+.toptu
+{
+	/*background-image: url(../img/ygky.png) ;*/
+    padding-bottom: 5px;
+    height: 100px;
+	
+}
+.beijing
+{
+	/*background-image: url(../img/zhengtibeijing.png) ;*/
+	/*background-size:cover;*/
+    background-color: #003366; /* 深蓝色背景 */
+    color: white;
+}
+
+.bottomtu
+{
+	background-image: url(../img/map.jpg) ;
+
+
+}
+.horn1{
+  
+    background: 
+		linear-gradient(hwb(93 8% 8%), #92e709)  left top,
+		linear-gradient(hwb(93 8% 8%), #92e709)  right top,
+		
+		linear-gradient(hwb(93 8% 8%), #92e709)  left bottom,
+		
+
+		linear-gradient(hwb(93 8% 8%), #92e709)  right bottom;
+	
+    background-color: rgba(0,0,0,0.3);
+	background-repeat: no-repeat;
+  background-size: 8px 55px, 45px 8px;
+}
+
+.xiabian{
+	border-bottom-style: solid;
+	border-width:10px ;
+	border-color:rgb(82, 79, 79);
+}
+
+.tile
+{
+	text-indent: 2em;
+}
+
+.horn2{
+  
+    background: linear-gradient(white, white) left top,
+		linear-gradient(white, white)  left top,
+		linear-gradient(white, white)  right top,
+		linear-gradient(white, white)  right top,
+		linear-gradient(white, white)  left bottom,
+		linear-gradient(white, white)  left bottom,
+		linear-gradient(white, white)  right bottom,
+		linear-gradient(white, white)  right bottom;
+	
+    background-color: rgba(0,0,0,0.3);
+	background-repeat: no-repeat;
+  background-size: 8px 15px, 15px 8px;
+}
+
+.xiabian1{
+	border-bottom-style: solid;
+	border-width:3px ;
+	border-color:rgb(108, 117, 106);
+}
+
+.xiabian2{
+	border-bottom-style: solid;
+	border-width:1px;
+	border-color:rgb(108, 117, 106);
+}
+
+
+
+
+    .gundong::-webkit-scrollbar {
+      /*滚动条宽*/
+      width: 4px;
+    }
+
+    .gundong::-webkit-scrollbar-thumb {
+      /*正在滑动的小块*/
+      border-radius: 10px;
+      background-color: rgb(171, 178, 196);
+    }
+
+    .gundong::-webkit-scrollbar-track {
+      /*滚动内部轨道*/
+      box-shadow: inset 0 0 5px rgba(186, 32, 32, 0.2);
+      background: rgb(140, 140, 158);
+      border-radius: 10px;
+    }
+.dengru
+{
+
+}
+
+ .lv::marker{
+ color: #0eb83a;
+
+}
+  .hong::marker{
+ color: #d51319;
+
+}
+/*上面两个就是设置了列表前面的圆圈的一个颜色*/
+
+.yuanjiaojuxin
+{
+
+
+	border-radius: 0.5em 0em 0em 0.5em;
+
+}
+.yuanjiaojuxin1{
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	width: 250px;
+	height: 35px;
+
+}
+
+.biankuang
+{
+	border-width: 1px 2px 2px 1px;
+	background-color: grey;
+	border-style: solid solid solid solid;
+	border-color:white white white white;
+/*分别为上→右→下→左 边框设置*/
+
+}
+.xinbie1{
+
+	border-color: #000000 #a2a2a2 #ada9a9 #000000;
+
+}
+select {
+
+  /* styling */
+  background-color: white;
+  border: thin solid blue;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+
+  /* reset */
+
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+
+/* arrows */
+
+select.classic {
+  background-image:
+    linear-gradient(45deg, transparent 50%, blue 50%),
+    linear-gradient(135deg, blue 50%, transparent 50%),
+    linear-gradient(to right, skyblue, skyblue);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+}
+
+select.classic:focus {
+  background-image:
+    linear-gradient(45deg, white 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, white 50%),
+    linear-gradient(to right, gray, gray);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+  border-color: grey;
+  outline: 0;
+}
+
+
+
+
+select.round {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    radial-gradient(#ddd 70%, transparent 72%);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - .5em) .5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1.5em 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.round:focus {
+  background-image:
+    linear-gradient(45deg, white 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, white 50%),
+    radial-gradient(gray 70%, transparent 72%);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - .5em) .5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1.5em 1.5em;
+  background-repeat: no-repeat;
+  border-color: green;
+  outline: 0;
+}
+
+
+
+
+
+select.minimal {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.minimal:focus {
+  background-image:
+    linear-gradient(45deg, green 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, green 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: green;
+  outline: 0;
+}
+
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+
+h1 {
+  color: white;
+  line-height: 120%;
+  margin: 0 auto 2rem auto;
+  max-width: 30rem;
+}
+
+        .a-radio{
+            display: none;
+        }
+        .b-radio{
+            display: inline-block;
+            border:1px solid #ccc;
+            width:16px;
+            height: 16px;
+            border-radius:2px;
+            vertical-align: middle;
+            margin-right: 5px;
+            position: relative;
+        }
+        .b-radio:before{
+            content: '';
+            font-size: 0;
+            width: 10px;
+            height: 10px;
+            background: rgb(143, 188, 238);
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left: -5px;
+            margin-top: -5px;
+            border-radius: 2px;
+            display: none;
+        }
+        .a-radio:checked~.b-radio:before{
+            display: block;
+        }
+
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 52px;
+}
+
+.switch input {display:none;}
+
+.slider {
+   padding-top: 10px;
+  position: absolute;
+  cursor: pointer;
+  top:40px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.switch1 {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 32px;
+}
+
+.switch1 input {display:none;}
+
+.slider1 {
+   padding-top: 10px;
+  position: absolute;
+  cursor: pointer;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider1:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider1 {
+  background-color: #2196F3;
+}
+
+input:focus + .slider1 {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider1:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider1.round1 {
+  border-radius: 34px;
+}
+
+.slider1.round1:before {
+  border-radius: 50%;
+}

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html class="ie9"><![endif]-->
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="format-detection" content="telephone=no">
+        <meta charset="UTF-8">
+        <meta name="description" content="Violate Responsive Admin Template">
+        <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
+        <title>慧眼安全防护系统</title>
+        <!-- CSS -->
+        <link href="static/css/style-v2.css" rel="stylesheet">
+        <link href="static/css/icons.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="static/js/bootstrap-3.3.4.css">
+        <link rel="stylesheet" type="text/css" href="static/js/font-awesome.4.6.0.css">
+        <link href="static/css/animate.min.css" rel="stylesheet">
+        <link href="static/css/form.css" rel="stylesheet">
+        <link href="static/css/calendar.css" rel="stylesheet">
+        <link href="static/css/media-player.css" rel="stylesheet">
+        <link href="static/css/style.css" rel="stylesheet">
+        <link href="static/css/initial.css" rel="stylesheet">
+        <link href="static/css/generics.css" rel="stylesheet">
+        <link href="static/css/zhuangshi.css" rel="stylesheet">
+        <link href="static/css/style_pulse.css" rel="stylesheet">
+        <!--<link rel="stylesheet" href="css/reset.css">-->
+        <link rel="stylesheet" href="static/css/jquery.hotspot.css">
+</head>
+
+<body class="beijing" style="background-color: #033c76">
+   <div class="media-body clearfix head">
+        <h1 class="head pull-left">慧眼——智能安全防护系统</h1>
+        <div class="menu pull-left tm-icon" style="text-align: center;">
+            <ul>
+                <li><a href="{{ url_for('cheliangxinxi')}}">车辆管理</a></li>
+                <li><a href="{{ url_for('userMng')}}">人员管理</a></li>
+                <li><a href="{{ url_for('record')}}">报警记录</a></li>
+                <li><a href="{{ url_for('sbgl')}}">设备管理</a></li>
+                <li><a href="{{ url_for('shijianchuliyuan')}}">事件报警</a></li>
+                <li><a href="{{ url_for('dengru') }}">管理员入口</a></li>
+            </ul>
+        </div>
+       <a data-drawer="messages" class="drawer-toggle pull-right" href="" style="display: inline-block;margin-top: 15px;">
+            <i class="sa-top-message"></i>
+            <!-- 就是通过sa-top-message来实现那个提示图表的设置 -->
+            <i class="n-count animated ">{{ sum1 }}</i>
+            <span style="color: white;display: inline-block;margin-top: 12px;" class="pull-right">实时消息</span>
+       </a>
+   </div>
+    <div class="pull-right tm-icon">
+        <div class="realtime" id="showTime">2025/4/27 17:00:12</div>
+    </div>
+    <section id="main" class="p-relative" role="main">  <!--这块大概就是网页的一个主体部分的设计了-->
+        <!-- Content -->
+        <section id="content" class="container" style="margin-left: 0px">
+
+            <!-- Messages Drawer -->
+            <!-- 这一块就是实时信息图标点开之后的一个效果-->
+            <div id="messages" class="listview narrow tile drawer animated">
+                    <div class="media">
+                        <a href="">新消息</a>
+                        <span class="drawer-close" >&times;</span>
+
+                    </div>
+                    <div class="overflow" style="height: 240px" id="ssxx">
+
+                          {% for zxrecord in zxrecords %}
+                          <div class="media">
+                             <div class="pull-left">
+                                <img width="40" src="static/img/{{ zxrecord.id }}.jpg" alt="">
+                            </div>
+                            <div class="media-body">
+                                <small class="text-muted">{{zxrecord.location}} - {{ zxrecord.time}}</small><br>
+                                <a class="t-overflow" href="">{{zxrecord.content}}</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                    <div class="media text-center whiter l-100">
+                        <a href="{{ url_for('record') }}" style="margin-bottom: auto"><small>查看所有</small></a>
+                    </div>
+                </div>
+            <!-- Main Widgets -->
+
+            <div class="block-area">
+                <div class="row">
+                    <div class="col-md-3">  <!-- 这一块决定了右边部分的大小-->
+                        <div class="" style="height: 508px" >
+                            <h4 class="tile-title2" style="text-align:center" >校园实时报警信息</h4>
+                            <div class="p-10" >
+                                <div class="listview todo-list sortable gundong" style="height: 200px;overflow :auto" id="wcl">
+                                    {% for record1 in records1 %}
+                                     <div id="text{{ record1.id }}">
+                                      <div class="media" >
+                                        <div class="checkbox m-0 " >
+                                            <label class="t-overflow" >
+                                                <input type="checkbox">
+                                                <a href="/banyi?id={{ record1.id }}" style="color:white">{{record1.time}}--{{record1.location}}--{{record1.content}}</a>
+                                            </label>
+                                        </div>
+                                    </div>
+                                  </div>
+                                  {% endfor %}
+                                </div>
+                                <!-- 这一块就直接放报警信息就可以了-->
+                            </div>
+                            <h4 class="tile-title2" style="text-align:center">校园实时人流量</h4>
+                            <div id="hallLost" style="width: 100%;height:220px;color: white"></div>
+                        </div>
+
+                        <!-- Dynamic Chart -->
+                        <div class="tile1" style="padding-top: 10px">
+
+                            <div  style="height: 260px" >
+                                <h4 class="tile-title4 " style="color:white;text-align: center">校园近期常发事故分析</h4>
+                                <!-- 这一块就直接放到时候的常发事故-->
+                                <div id="ttt" style="width: 100%; height: 230px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="border-radius: 20px;">
+                        <!-- Main Chart -->   <!-- 这一块是中间部分之后就用来放视频-->
+                        <div class="tile-title1">
+                            <h4 class="tile-title1" style="text-align:center;">监控大屏</h4>
+
+                            <div class="p-10 " style="height: 480px">
+                                    <!-- 直接替换这个div来放置视频就可以了-->
+                                    <!-- 这一块就直接放入视频就可以了-->
+                                <div id="shiping" style="width: 100%; height: 100%">
+{#                                   <img  src='{{ url_for('video1_feed') }}' alt="" style="display:block; width: 100%; height: 100%;">#}
+
+                               </div>
+                            </div>
+                        </div>
+
+                        <!--  Recent Postings -->
+                        <div class="col-md-12 ">
+                               <div class="chart_wrap map_wrap" style="position: relative;">
+                                    <div class="map_box">
+                                        <img id="map_shexiangtou" src="./static/img/school_map.png" alt="" style="width: 905px ; height:270px;">
+                                     <div class="city city1 red">
+{#                                            <div class="dotted">858</div>#}
+                                            <div class="pulse1"></div>
+                                            <div class="pulse2"></div>
+                                            <div class="pulse3"></div>
+                                        </div>
+                                        <div class="city city2 orange">
+{#                                            <div class="dotted">425</div>#}
+                                            <div class="pulse1"></div>
+                                            <div class="pulse2"></div>
+                                            <div class="pulse3"></div>
+                                        </div>
+                                        <div class="city city3">
+{#                                            <div class="dotted">362</div>#}
+                                            <div class="pulse1"></div>
+                                            <div class="pulse2"></div>
+                                            <div class="pulse3"></div>
+                                        </div>
+                                        <div class="city city4 orange">
+{#                                            <div class="dotted">245</div>#}
+                                            <div class="pulse1"></div>
+                                            <div class="pulse2"></div>
+                                            <div class="pulse3"></div>
+                                        </div>
+                                        <div class="city city5">
+{#                                            <div class="dotted">88</div>#}
+                                            <div class="pulse1"></div>
+                                            <div class="pulse2"></div>
+                                            <div class="pulse3"></div>
+                                        </div>
+                                    </div>
+{#                                    <div class="legend">#}
+{#                                        损坏程度#}
+{#                                        <p class="colorBar"></p>#}
+{#                                        <p class="text">#}
+{#                                            <span>良好</span>#}
+{#                                            <span>模糊</span>#}
+{#                                            <span>损坏</span>#}
+{#                                        </p>#}
+{#                                    </div>#}
+                                </div>
+                            </div>
+                    </div>  <!-- 这一块决定了左边部分的大小-->
+                            <!-- 此时上下两个是同级的-->
+                      <div class="col-md-3">  <!-- 这一块决定了右边部分的大小-->  <!-- tile容器就是为了使得每个部分彼此之间有一个间隔就是了 彻底明白了-->
+                        <!-- USA Map -->
+                        <div class="tile1">
+                            <h4 class="tile-title3" style="text-align:center">校园监控点切换</h4>
+                            <div  class="p-10 gundong qiehuananniu" style="height: 460px;overflow: auto";style="padding-right: 0px">
+                                <!-- 这一块来放置切换按钮就可以了-->
+                                <div class="listview1 sortable " id="zongti" style="margin-left:10px">
+
+                                    <div id="d1" class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                        <img src="static/img/zonghe.svg" class="fl sp-icon-list" alt="提醒图标" style="padding-bottom: 5px;">
+                                        <h4 class="fl" style="padding-left: 30px;color: black;">校门</h4>
+                                        <!-- 就通过这种方法来实现图片和文字都放在一行的操作就可以了 -->
+                                    </div>
+
+                                    <div id="d2" class="media"  style="background-color: rgb(242, 243, 239); height: 60px;">
+                                        <img src="static/img/icon/caochang.png" class="fl sp-icon-list" alt="提醒图标" style="padding-bottom: 5px;">
+                                        <h4 class="fl" style="padding-left: 30px;color: black;" >操场</h4>
+
+                                    </div>
+
+                                    <div id="d3" class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                        <img src="static/img/wenhuajingdian.png" class="fl sp-icon-list" alt="提醒图标" style="padding-bottom: 5px;">
+                                        <h4 class="fl" style="padding-left: 30px;color: black;" >教学楼</h4>
+
+                                    </div>
+
+
+                                   <div id="d4" class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                    <img src="static/img/xnwz.png" class="fl sp-icon-list" alt="提醒图标" style="padding-bottom: 5px;">
+                                    <h4 class="fl" style="padding-left: 30px;color: black;" >车辆频繁路段</h4>
+
+                                    </div>
+
+                                    <div id="d5" class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                        <img src="static/img//icon/shui.png" class="fl sp-icon-list" alt="提醒图标" style="padding-bottom: 5px;">
+                                        <h4 class="fl" style="padding-left: 30px;color: black;" >水边</h4>
+
+                                    </div>
+
+                            </div>
+
+                            <!-- 这块写点开校内位置 -->
+                            <div id="d11" class="listview1 sortable "  style="display: none;">
+                                 <!-- 就通过这种方法来实现图片和文字都放在一行的操作就可以了 -->
+                                <div id="d111"  class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                    <img src="static//img/jiantou1.png" class="fl sp-icon-list" alt="提醒图标" >
+                                    <h4 class="fl" style="padding-left: 30px;color: black;" >校门</h4>
+                                </div>
+                                <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                    <img src="static/img/dangqunbumeng.png" class="fl sp-icon-list" alt="提醒图标" >
+                                    <h4 class="fl" style="padding-left: 30px;color: black;" >校门--东南</h4>
+                                </div>
+                                <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                    <img src="static/img/xinzhengbumeng.png" class="fl sp-icon-list" alt="提醒图标" >
+                                    <h4 class="fl" style="padding-left: 30px;color: black;" >校门--东北</h4>
+                                </div>
+                                <div  id="yewu" class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                    <img src="static/img/yewubumeng.png" class="fl sp-icon-list" alt="提醒图标" >
+                                    <h4 class="fl" style="padding-left: 30px;color: black;" >校门--西南</h4>
+                                </div>
+                                <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                    <img src="static/img/yanjiuyuan.png" class="fl sp-icon-list" alt="提醒图标" >
+                                    <h4 class="fl" style="padding-left: 30px;color: black;" >校门--西北</h4>
+                                </div>
+
+
+                            </div>
+                            <div id="d1111" class="listview1 sortable "  style="display: none;">
+                                <!-- 就通过这种方法来实现图片和文字都放在一行的操作就可以了 -->
+                               <div id="d11111"  class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static//img/jiantou1.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >校门--西南</h4>
+                               </div>
+                               <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static/img/icon/xiaomen.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >校门--西南--01</h4>
+                               </div>
+                               <div  class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static/img/icon/xiaomen.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >校门--西南--02</h4>
+                               </div>
+                               <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static/img/icon/xiaomen.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >校门--西南--03</h4>
+                               </div>
+                               <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static/img/icon/xiaomen.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >校门--西南--04</h4>
+                               </div>
+                               <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static/img/icon/xiaomen.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >校门--西南--05</h4>
+                               </div>
+                               <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                <img src="static/img/icon/xiaomen.png" class="fl sp-icon-list" alt="提醒图标" >
+                                <h4 class="fl" style="padding-left: 30px;color: black;" >校门--西南--06</h4>
+                               </div>
+                               <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                <img src="static/img/icon/xiaomen.png" class="fl sp-icon-list" alt="提醒图标" >
+                                <h4 class="fl" style="padding-left: 30px;color: black;" >校门--西南--07</h4>
+                               </div>
+                               <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                <img src="static/img/icon/xiaomen.png" class="fl sp-icon-list" alt="提醒图标" >
+                                <h4 class="fl" style="padding-left: 30px;color: black;" >校门--西南--08</h4>
+                               </div>
+
+                           </div>
+
+
+                            <!-- 这块写点开校内建筑 -->
+                            <div id="d22" class="listview1 sortable "  style="display: none;">
+                                <!-- 就通过这种方法来实现图片和文字都放在一行的操作就可以了 -->
+                               <div id="d222"  class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static//img/jiantou1.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >操场</h4>
+                               </div>
+                               <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static/img/jiaoxueyu.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >操场--01</h4>
+                               </div>
+                               <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static/img/xueshensushe.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >操场--02</h4>
+                               </div>
+                               <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static/img/zonghe.svg" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >操场--03</h4>
+                               </div>
+                               <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static/img/zonghe.svg" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >操场--04</h4>
+                               </div>
+                            </div>
+
+                            <!-- 这块写点开雕塑 -->
+                            <div id="d33" class="listview1 sortable "  style="display: none;">
+                                <!-- 就通过这种方法来实现图片和文字都放在一行的操作就可以了 -->
+                               <div id="d333"  class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static//img/jiantou1.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >教学楼</h4>
+                               </div>
+                               <div onclick="qiehuan1()"   class="media" style="background-color: rgb(242, 243, 239); height: 60px;" id="jiaoxuelou1">
+                                   <img src="static/img/wenhua.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >教学楼-01</h4>
+                               </div>
+                                <div  onclick="qiehuan1()"  class="media" style="background-color: rgb(242, 243, 239); height: 60px;" id="jiaoxuelou2">
+                                   <img src="static/img/wenhua.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >教学楼-02</h4>
+                               </div>
+                                <div    class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static/img/wenhua.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >教学楼-03</h4>
+                               </div>
+                                <div    class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static/img/wenhua.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >教学楼-04</h4>
+                               </div>
+                               <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static/img/mingren.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >教学楼-05</h4>
+                               </div>
+                                <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static/img/mingren.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >教学楼-06</h4>
+                               </div>
+                                <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static/img/mingren.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >教学楼-07</h4>
+                               </div>
+                                <div   class="media" style="background-color: rgb(242, 243, 239); height: 60px;">
+                                   <img src="static/img/mingren.png" class="fl sp-icon-list" alt="提醒图标" >
+                                   <h4 class="fl" style="padding-left: 30px;color: black;" >教学楼-08</h4>
+                               </div>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Chart -->
+                        <div class="tile1">
+                            <div  style="height: 270px" >
+                                <h4 class="tile-title5 " style="padding-top: 7px;color:white;text-align:center">校园事故常发地段分析</h4>
+                                <!-- 这一块就直接放到时候的常发事故-->
+                                <div id="diduan" style="width: 100%; height: 220px;"></div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+    </section>
+
+    <!-- Javascript Libraries -->
+    <!-- jQuery -->
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script> <!-- jQuery Library -->
+    <script src="http://www.jq22.com/jquery/jquery-ui-1.11.0.js"></script> <!-- jQuery UI -->
+    <script src="static/js/jquery.easing.1.3.js"></script> <!-- jQuery Easing - Requirred for Lightbox + Pie Charts-->
+    <script src="static/js/ii.js"></script>
+    <script src="static/js/anniu.js"></script>
+    <!-- Bootstrap -->
+    <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
+    <script src="static/js/echarts/echarts.min.js"></script>
+    <!-- Charts -->
+    <script src="static/js/charts/jquery.flot.js"></script> <!-- Flot Main -->
+    <script src="static/js/charts/jquery.flot.time.js"></script> <!-- Flot sub -->
+    <script src="static/js/charts/jquery.flot.animator.min.js"></script> <!-- Flot sub -->
+    <script src="static/js/charts/jquery.flot.resize.min.js"></script> <!-- Flot sub - for repaint when resizing the screen -->
+
+    <script src="static/js/sparkline.min.js"></script> <!-- Sparkline - Tiny charts -->
+    <script src="static/js/easypiechart.js"></script> <!-- EasyPieChart - Animated Pie Charts -->
+    <script src="static/js/charts.js"></script> <!-- All the above chart related functions -->
+
+    <!-- Map -->
+    <script src="static/js/maps/jvectormap.min.js"></script> <!-- jVectorMap main library -->
+    <script src="static/js/maps/usa.js"></script> <!-- USA Map for jVectorMap -->
+
+    <!--Media Player-->
+    <script src="static/js/media-player.min.js"></script> <!-- USA Map for jVectorMap -->
+
+    <!--  Form Related -->
+    <script src="static/js/icheck.js"></script> <!-- Custom Checkbox + Radio -->
+
+    <!-- UX -->
+    <script src="static/js/scroll.min.js"></script> <!-- Custom Scrollbar -->
+
+    <!-- Other -->
+    <script src="static/js/calendar.min.js"></script> <!-- Calendar -->
+    <!--<script src="js/feeds.min.js"></script> &lt;!&ndash; News Feeds &ndash;&gt;-->
+    <!--HotSpot of pic-->
+    <script src="static/js/modernizr.custom.49511.js"></script>
+    <script src="static/js/jquery.hotspot.min.js"></script>
+
+    <!-- All JS functions -->
+    <script src="static/js/functions.js"></script>
+   <script src="static/js/diduan.js"></script>
+    <script src="static/js/cheliuliang_ajax.js"></script><!-- 地段分析（这个是带ajax的动态刷新） -->
+    <script src="static/js/button.js"></script>  <!-- 按钮函数 -->
+    <script src="static/js/shipingqiehuan.js"></script>  <!-- 监控视频的切换 -->
+    <script src="static/js/baojingsx.js"></script>  <!-- 监控视频的切换（这个是带ajax的动态刷新） -->
+    <script src="static/js/xiaoxishuaxin.js"></script>  <!-- 右上角的实时消息更新（这个是带ajax的动态刷新） -->
+    <script src="static/js/cheliuliang.js"></script>  <!-- 车流量的切换（这个是带ajax的动态刷新） -->
+    <script src="static/js/changshi.js"></script>  <!-- 车流量的切换（这个是带ajax的动态刷新） -->
+    <script src="static/js/shexiangtouflag.js"></script>
+    <script src="static/js/shexiangtouflag2.js"></script>
+    <script src="static/js/shexiangtou_chart.js"></script>
+    <script src="static/js/particles.min.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/echarts.min"></script>
+</body>
+
+<script>
+
+function shuaxin1(){               //load是上面的button的id，这里代表点一下的操作
+            $.ajax({
+                url:'/getwcl',                     //从gettime这个视图函数获取数据，一会编写
+                type:'get',                         //采用get方法
+                dataType:'JSON',
+                success:function(a){            //成功之后的结果，这里的t是从'/gettime'视图函数获得的返回值，如果返回值有多个，可以用json
+                    //$('#timenow').load('当前时间为')//用“当前时间为：t”代替timenow也就是上面的“当前时间?"
+                    if(!a['is_null'])
+                         $('#wcl').empty();
+                        var i=a[0];
+                        for(let g=0 ;g < i; g++) {
+                            var a1=$("<div class='media'> </div>");
+                            var a2=$("<div class='checkbox m-0''> </div>");
+                            var a3=$("<label class='t-overflow'> </label>");
+                            var a4=$("<div class='icheckbox_minimal' aria-checked='false' aria-disabled='false' style='position: relative;'></div>");
+                            var a5=$("<input type='checkbox' style='position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;'>")
+                            var a6=$("<ins class='iCheck-helper' style='position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;'></ins>")
+                            var a7=$("<a href= \'/banyi?id="+a[1][g]['id']+"\' style='color:white'>"+a[1][g]['time']+'--'+a[1][g]['location']+'--'+a[1][g]['content']+"</a>");
+                            a4.append(a5)
+                            a4.append(a6)
+                            a3.append(a4);
+                            a3.append(a7);
+                            a2.append(a3);
+                            a1.append(a2);
+                            $('#wcl').append(a1);
+                        }
+                }
+            })
+        }
+setInterval(shuaxin1,5000);
+</script>
+
+	<script>
+$(function(){
+    var map = new BMap.Map("map");    // 创建Map实例
+    map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+
+    var size1 = new BMap.Size(10, 50);
+    map.setCurrentCity("北京");
+    map.enableScrollWheelZoom(true);
+    //设备地图颜色
+    var mapStyle={
+        style:"midnight"
+    };
+    map.setMapStyle(mapStyle);
+
+	var pt1 = new BMap.Point(116.304, 39.915);
+	var pt2 = new BMap.Point(116.404, 39.985);
+
+
+	var myIcon = new BMap.Icon("images/head.jpg", new BMap.Size(32,32));
+	var marker1 = new BMap.Marker(pt1,{icon:myIcon});
+	var marker2 = new BMap.Marker(pt2,{icon:myIcon});
+
+
+	map.addOverlay(marker1);
+	map.addOverlay(marker2);
+
+
+
+})
+
+</script>
+
+	<script>
+var t = null;
+    t = setTimeout(time,1000);//開始运行
+    function time()
+    {
+       clearTimeout(t);//清除定时器
+       dt = new Date();
+		var y=dt.getFullYear();
+		var mt=dt.getMonth()+1;
+		var day=dt.getDate();
+       var h=dt.getHours();//获取时
+       var m=dt.getMinutes();//获取分
+       var s=dt.getSeconds();//获取秒
+       document.getElementById("showTime").innerHTML = y+"/"+mt+"/"+day+" "+h+":"+m+":"+s+"";
+       t = setTimeout(time,1000); //设定定时器，循环运行
+    }
+
+</script>
+
+<script>
+        // 定义全局变量 imageMap 并赋值图片映射信息
+        window.imageMap = {
+            "jiaoxuelou1": "{{ url_for('static', filename='img/school_dection/test.png') }}",
+            // 可按需添加更多映射
+            //教学楼部分
+            // "jiaoxuelou1": "/img/school_dectionimage/jiaoxielou1.jpg",
+            // "jiaoxuelou2": "/img/school_dectionimage/jiaoxuelou2.jpg",
+            // "jiaoxuelou3": "/img/school_dectionimage3.jpg"
+        };
+</script>
+
+</html>

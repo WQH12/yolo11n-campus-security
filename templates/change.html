@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改学员信息</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+<body>
+    <form method="post" style="width: 400px; margin: 100px auto">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">账号</label>
+          <input type="text"  class="form-control" id="exampleInputEmail1" value="{{ webuser.accountname }}" name="name">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">密码</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" value="{{ webuser.password }}" name="id">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">用户名</label>
+          <input type="text" class="form-control" value="{{ webuser.username }}" name="chinese">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">属性1</label>
+          <input type="text" class="form-control" value="{{ webuser.obj1 }}" name="math">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">属性2</label>
+          <input type="text" class="form-control" value="{{ webuser.obj2 }}" name="english">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">属性3</label>
+          <input type="text" class="form-control" value="{{ webuser.obj3 }}" name="english">
+        </div>
+        <button type="submit" class="btn btn-primary">提交</button>
+      </form>
+</body>
+</html>

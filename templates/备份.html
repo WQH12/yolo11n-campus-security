@@ -1,0 +1,48 @@
+                           {% for zxrecord in zxrecords %}
+                              <div class="media">
+                                 <div class="pull-left">
+                                    <img width="40" src="static/{{ zxrecord.id }}.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">{{zxrecord.location}} - {{ zxrecord.time}}</small><br>
+                                    <a class="t-overflow" href="">{{zxrecord.content}}</a>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+
+
+<div class="listview1 sortable " >
+                                              <form method="post" >
+                                 <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">账号</label>
+                                    <input type="text"  class="form-control" id="exampleInputEmail1" value="" name="accountname">
+                                 </div>
+                               <div class="mb-3">
+                                   <label for="exampleInputEmail1" class="form-label">密码</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" value="" name="password">
+                              </div>
+                               <div class="mb-3">
+                                   <label for="exampleInputPassword1" class="form-label">用户名</label>
+                                   <input type="text" class="form-control" value="" name="username">
+                               </div>
+                               <div class="mb-3">
+                                   <label for="exampleInputPassword1" class="form-label">属性1</label>
+                                   <input type="text" class="form-control" value="" name="obj1">
+                               </div>
+                               <div class="mb-3">
+                                   <label for="exampleInputPassword1" class="form-label">属性2</label>
+                                   <input type="text" class="form-control" value="" name="obj2">
+                               </div>
+                             <div class="mb-3">
+                                    <label for="exampleInputPassword1" class="form-label">属性3</label>
+                                    <input type="text" class="form-control" value="" name="obj3">
+                             </div>
+                            <button type="submit" class="btn btn-primary">登录系统</button>
+                            <button type="submit" class="btn btn-primary" >注册</button>
+                         </form>
+
+
+
+
+                                      </div>
